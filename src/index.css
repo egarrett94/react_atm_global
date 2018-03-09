@@ -1,8 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Oleo+Script);
 @import url(http://fonts.googleapis.com/css?family=Ruluko);
+@import url(https://fonts.googleapis.com/css?family=Karma);
 
 body {
-  font-family: 'Ruluko', sans-serif;
+  font-family: 'Karma', sans-serif;
   margin: 0px auto;
   text-align: center;
   width: 700px;
@@ -14,13 +15,13 @@ body {
 
 .title {
   color: #F52F4F;
-  font-family: 'Oleo Script', cursive;
-  font-size: 50px;
+  font-size: 70px;
+
 }
 
 .account {
-  background-color: #6C9A74;
-  border: 1px solid #295A33;
+  background-color: #888;
+  border: 4px outset grey;
   border-radius: 15px;
   display: inline-block;
   margin: 10px;
@@ -29,9 +30,8 @@ body {
 }
 
 .balance {
-  background-color: #E3E3E3;
-  border: 1px solid #676767;
-  border-radius: 15px;
+  background-color: #c3ea70;
+  border: 4px inset grey;
   font-family: 'Ruluko', sans-serif;
   font-size: 50px;
   margin: 5px;
@@ -39,6 +39,6 @@ body {
 }
 
 .zero {
-  background-color: #F52F4F;
+  background-color: #44564b;
   color: #FFFFFF;
 }

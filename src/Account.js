@@ -9,12 +9,13 @@ export default class Account extends Component {
     }
 
     this.handleDepositClick = this.handleDepositClick.bind(this)
+    this.handleWithdrawClick = this.handleWithdrawClick.bind(this)
   }
 
   handleDepositClick(e) {
     e.preventDefault();
-    if (isNaN(this.refs.amount.value)) {
-      console.log("Not a number");
+    if (isNaN(this.refs.amount.value) || this.refs.amount.value < 0) {
+      console.log("Not a valid amount to deposit.");
     }
     else {
       let amount = +this.refs.amount.value;
@@ -22,6 +23,34 @@ export default class Account extends Component {
       this.setState({
         balance: newBalance
       })
+      this.refs.amount.value = '';
+    }
+  }
+
+  handleWithdrawClick(e) {
+    e.preventDefault();
+    if (isNaN(this.refs.amount.value) || this.refs.amount.value < 0) {
+      console.log("Not a valid amount to withdraw.");
+    }
+    else {
+      let amount = +this.refs.amount.value;
+      let newBalance = this.state.balance - amount;
+      this.setState({
+        balance: newBalance
+      })
+      this.refs.amount.value = '';
+    }
+  }
+
+  handleTransferClick(e) {
+    e.preventDefault();
+    if (isNaN(this.refs.amount.value) || this.refs.amount.value < 0) {
+      console.log("Not a valid amount to transfer.");
+    }
+    else {
+      let amount = +this.refs.amount.value
+      let newBalance = this.state.balance - amount;
+      //add to other account and setstate??? 
       this.refs.amount.value = '';
     }
   }
@@ -37,7 +66,11 @@ export default class Account extends Component {
         <h2>{this.props.name}</h2>
         <div className={balanceClass}>${this.state.balance}</div>
         <input type="text" placeholder="enter an amount" ref="amount" />
+        <br/>
         <input type="button" value="Deposit" onClick={this.handleDepositClick} />
+        <input type="button" value="Withdraw" onClick={this.handleWithdrawClick} />
+        <br/>
+        <input type="button" value="Transfer" onClick={this.handleTransferClick} />
       </div>
     )
   }
